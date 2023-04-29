@@ -1,0 +1,16 @@
+# Avoid accidental upload of the Sketch and Figma design files
+#####################################################
+*.sketch
+*.fig
+
+# Avoid accidental XD upload if you convert the design file
+###############################################
+*.xd
+
+# Other
+.DS_Store
+.prettierignore
+README-template.md
+README.md
+projectplan.md
+style-guide.md
