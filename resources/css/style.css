@@ -1,0 +1,85 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap');
+
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* margin: 0; */
+  /* padding: 0; */
+}
+
+/* CUSTOM PROPERTIES */
+:root {
+  /* Colors theme 1 */
+  --clr-bg-main-1: hsl(222, 26%, 31%);
+  --clr-bg-keypad-1: hsl(223, 31%, 20%);
+  --clr-bg-screen-1: hsl(224, 36%, 15%);
+  --clr-bg-numkeys-1: hsl(30, 25%, 89%);
+  --clr-bg-numkeys-hover-1: hsl(60, 100%, 100%);
+  --clr-bg-numkeys-shadow-1: hsl(28, 16%, 65%);
+  --clr-bg-delreskeys-1: hsl(225, 21%, 49%);
+  --clr-bg-delreskeys-hover-1: hsl(225, 51%, 76%);
+  --clr-bg-delreskey-shadow-1: hsl(224, 28%, 35%);
+  --clr-bg-key-equals-1: hsl(6, 63%, 50%);
+  --clr-bg-key-equals-hover-1: hsl(6, 93%, 67%);
+  --clr-bg-key-equals-shadow-1: hsl(6, 70%, 34%);
+  --clr-txt-light-1: hsl(0, 0%, 100%);
+  --clr-txt-dark-1: hsl(221, 14%, 31%);
+
+  /* Colors theme 2 */
+  --clr-bg-main-2: hsl(0, 0%, 90%);
+  --clr-bg-keypad-2: hsl(0, 5%, 81%);
+  --clr-bg-screen-2: hsl(0, 0%, 93%);
+  --clr-bg-numkeys-2: hsl(45, 7%, 89%);
+  --clr-bg-delreskeys-hover-2: hsl(225, 51%, 76%);
+  --clr-bg-numkeys-shadow-2: hsl(35, 11%, 61%);
+  --clr-bg-delreskeys-2: hsl(185, 42%, 37%);
+  --clr-bg-delreskeys-hover-2: hsl(0, 0%, 100%);
+  --clr-bg-delreskey-shadow-2: hsl(185, 58%, 25%);
+  --clr-bg-key-equals-2: hsl(25, 98%, 40%);
+  --clr-bg-key-equals-hover-2: hsl(25, 100%, 61%);
+  --clr-bg-key-equals-shadow-2: hsl(25, 99%, 27%);
+  --clr-txt-light-2: hsl(0, 0%, 100%);
+  --clr-txt-dark-2: hsl(60, 10%, 19%);
+
+  /* Colors theme 3 */
+  --clr-bg-main-3: hsl(268, 75%, 9%);
+  --clr-bg-keypad-3: hsl(268, 71%, 12%);
+  --clr-bg-screen-3: hsl(268, 71%, 12%);
+  --clr-bg-numkeys-3: hsl(268, 47%, 21%);
+  --clr-bg-numkeys-hover-3: hsl(268, 54%, 44%);
+  --clr-bg-numkeys-shadow-3: hsl(290, 70%, 36%);
+  --clr-bg-delreskeys-3: hsl(281, 89%, 26%);
+  --clr-bg-delreskeys-hover-3: hsl(280, 56%, 44%);
+  --clr-bg-delreskey-shadow-3: hsl(285, 91%, 52%);
+  --clr-bg-key-equals-3: hsl(176, 100%, 44%);
+  --clr-bg-key-equals-hover-3: hsl(176, 100%, 79%);
+  --clr-bg-key-equals-shadow-3: hsl(177, 92%, 70%);
+  --clr-txt-light-3: hsl(0, 0%, 100%);
+  --clr-txt-dark-3: hsl(198, 20%, 13%);
+  --clr-txt-yellow-3: hsl(52, 100%, 62%);
+
+  /* Fonts */
+  --fs-xl: 2.5rem;
+  --fs-l: 2rem;
+  --fs-m: 1.25rem;
+  --fs-s: 0.75rem;
+
+  /* Padding, margin, gap */
+  --gap-primary: 0.75rem;
+}
+
+/* obs: ev. ändra max-width här */
+@media screen and (max-width: 375px) {
+  :root {
+    /* Fonts */
+    --fs-xl: 3.5rem;
+    --fs-l: 2.5rem;
+    --fs-m: 1.75rem;
+
+    /* Padding, margin, gap */
+    --gap-primary: 2rem;
+  }
+}
