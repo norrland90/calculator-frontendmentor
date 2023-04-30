@@ -72,7 +72,7 @@
 }
 
 /* obs: ev. ändra max-width här */
-@media screen and (max-width: 375px) {
+@media screen and (min-width: 375px) {
   :root {
     /* Fonts */
     --fs-xl: 3.5rem;
@@ -82,4 +82,86 @@
     /* Padding, margin, gap */
     --gap-primary: 2rem;
   }
+}
+
+/* GENERAL STYLES */
+
+body {
+  background-color: var(--clr-bg-main-1);
+  font-family: 'League Spartan', sans-serif;
+  color: var(--clr-txt-light-1);
+  font-weight: 700;
+}
+
+.calculator {
+  max-width: 540px;
+  margin: 4rem auto 0 auto;
+}
+
+/* HEADER */
+
+.calculator__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.culculator__heading {
+  font-size: var(--fs-l);
+}
+
+.calculator__switch-container {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-primary);
+}
+
+.calculator__switch-input-container {
+  width: 4.4rem;
+}
+
+.calculator__switch-label-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.calculator__switch-label-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.calculator__switch-input-container {
+  position: relative;
+}
+
+.calculator__switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.calculator__switch-track {
+  position: relative;
+  width: 100%;
+  height: 1.5rem;
+  background-color: var(--clr-bg-keypad-1);
+  border-radius: 16rem;
+  padding: 0.2rem;
+}
+
+.calculator__switch-thumb {
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: calc(1.5rem - 0.4rem);
+  height: calc(100% - 0.4rem);
+  border-radius: 50%;
+  background-color: var(--clr-bg-key-equals-1);
+  transition: transform 300ms ease-out;
 }
