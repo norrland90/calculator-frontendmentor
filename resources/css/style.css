@@ -62,13 +62,13 @@
   --clr-txt-yellow-3: hsl(52, 100%, 62%);
 
   /* Fonts */
-  --fs-xl: 2.5rem;
-  --fs-l: 2rem;
-  --fs-m: 1.25rem;
-  --fs-s: 0.75rem;
+  --fs-xl: 2.5rem; /* Displaynummer */
+  --fs-l: 2rem; /* Keys siffror */
+  --fs-m: 1.25rem; /* Keys DEL, RESET, = */
+  --fs-s: 0.75rem; /* Liten text theme switcher */
 
   /* Padding, margin, gap */
-  --gap-primary: 0.75rem;
+  --gap-primary: 0.8rem;
   --section-padding-primary: 1.5rem;
   --border-radius-primary: 0.5rem;
 }
@@ -82,7 +82,7 @@
     --fs-m: 1.75rem;
 
     /* Padding, margin, gap */
-    --gap-primary: 2rem;
+    --gap-primary: 1.5rem;
   }
 }
 
@@ -112,13 +112,13 @@ body {
 }
 
 .culculator__heading {
-  font-size: var(--fs-l);
+  font-size: 2rem;
 }
 
 .calculator__switch-container {
   display: flex;
   align-items: center;
-  gap: var(--gap-primary);
+  gap: 1.5rem;
 }
 
 .calculator__switch-heading {
