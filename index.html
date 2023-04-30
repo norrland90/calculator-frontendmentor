@@ -7,5 +7,53 @@
     <script src="/resources/js/script.js" defer></script>
     <title>Calculator App - Frontend Mentor</title>
   </head>
-  <body></body>
+  <body>
+    <main>
+      <article class="calculator">
+        <header class="calculator__header">
+          <h1 class="culculator__heading">calc</h1>
+          <div class="calculator__switch-container">
+            <!-- Lite osäker kring om jag använder labels på bästa sätt eftersom det är flera labels till samma input  -->
+            <label for="calculator__input" class="calculator__switch-heading"
+              >theme</label
+            >
+            <div class="calculator__switch-input-container">
+              <div class="calculator__switch-numbers-container">
+                <label
+                  for="calculator__input"
+                  class="calculator__switch-number"
+                >
+                  1
+                </label>
+                <label
+                  for="calculator__input"
+                  class="calculator__switch-number"
+                >
+                  2
+                </label>
+                <label
+                  for="calculator__input"
+                  class="calculator__switch-number"
+                >
+                  3
+                </label>
+              </div>
+              <input
+                type="range"
+                min="1"
+                max="3"
+                value="1"
+                class="calculator__switch-input"
+                id="calculator__input"
+              />
+            </div>
+          </div>
+        </header>
+        <section class="calculator__display">
+          <h2 class="calculator__value">399,981</h2>
+        </section>
+        <section class="calculator__keys"></section>
+      </article>
+    </main>
+  </body>
 </html>
