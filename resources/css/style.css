@@ -92,6 +92,7 @@ body {
   color: var(--clr-txt-light-1);
   font-family: 'League Spartan', sans-serif;
   font-weight: 700;
+  transition: background-color 400ms ease-in;
 }
 
 .calculator {
@@ -161,6 +162,8 @@ body {
   height: 1.5rem;
   border-radius: 1rem;
   padding: 0.2rem;
+
+  cursor: pointer;
 }
 
 .calculator__switch-thumb {
@@ -173,6 +176,7 @@ body {
   height: calc(100% - 0.4rem);
   border-radius: 50%;
 
+  cursor: pointer;
   transition: transform 300ms ease-out;
 }
 
@@ -185,9 +189,9 @@ body {
   background-color: var(--clr-bg-key-equals-2);
 }
 
-/* Theme 2 */
+/* Theme 3 */
 .calculator--theme-3 .calculator__switch-track {
-  background-color: var(--clr-bg-keypad-3);
+  background-color: var(--clr-bg-delreskeys-3);
 }
 
 .calculator--theme-3 .calculator__switch-thumb {
