@@ -359,7 +359,7 @@ body {
 
 .calculator--theme-3 .calculator__button--number {
   background-color: var(--clr-bg-numkeys-3);
-  color: var(--clr-txt-dark-3);
+  color: var(--clr-txt-yellow-3);
   box-shadow: 0px 4px 0 var(--clr-bg-numkeys-shadow-3);
 }
 
@@ -390,7 +390,7 @@ body {
 
 .calculator--theme-3 .calculator__button--equals {
   background-color: var(--clr-bg-key-equals-3);
-  color: var(--clr-txt-light-3);
+  color: var(--clr-txt-dark-3);
   box-shadow: 0px 4px 0 var(--clr-bg-key-equals-shadow-3);
 }
 
