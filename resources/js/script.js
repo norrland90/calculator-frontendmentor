@@ -2,6 +2,9 @@
 const themeSwitcherInput = document.querySelector('.calculator__switch-input');
 const themeSwitcherThumb = document.querySelector('.calculator__switch-thumb');
 const calculator = document.querySelector('.calculator');
+const keyPad = document.querySelector('.calculator__keys');
+const calculatorValue = document.querySelector('.calculator__value');
+let operator;
 
 // FUNCTIONS
 function getThemeSwitcherValue() {
@@ -36,5 +39,74 @@ function changeTheme(themeSwitcherValue) {
   }
 }
 
+function onKeyPadClick(e) {
+  const targetId = e.target.id;
+  switch (targetId) {
+    case 'zero':
+      addToDisplay('0');
+      break;
+    case 'one':
+      addToDisplay('1');
+      break;
+    case 'two':
+      addToDisplay('2');
+      break;
+    case 'three':
+      addToDisplay('3');
+      break;
+    case 'four':
+      addToDisplay('4');
+      break;
+    case 'five':
+      addToDisplay('5');
+      break;
+    case 'six':
+      addToDisplay('6');
+      break;
+    case 'seven':
+      addToDisplay('7');
+      break;
+    case 'eight':
+      addToDisplay('8');
+      break;
+    case 'nine':
+      addToDisplay('9');
+      break;
+    case 'comma':
+      addToDisplay('.');
+      break;
+    case 'delete':
+      deleteLastNumber();
+      break;
+    case 'reset':
+      resetCalculator();
+      break;
+  }
+}
+
+function addToDisplay(num) {
+  const currentValue = calculatorValue.innerHTML;
+  if (currentValue === '0' && num !== '.') {
+    calculatorValue.innerHTML = num;
+  } else {
+    calculatorValue.innerHTML = currentValue + num;
+  }
+}
+
+function deleteLastNumber() {
+  const currentValue = calculatorValue.innerHTML;
+  if (currentValue.length === 1) {
+    calculatorValue.innerHTML = '0';
+  } else {
+    calculatorValue.innerHTML = currentValue.slice(0, currentValue.length - 1);
+  }
+}
+
+function resetCalculator() {
+  calculatorValue.innerHTML = '0';
+  operator = '';
+}
+
 // EVENT LISTENERS
 themeSwitcherInput.addEventListener('input', getThemeSwitcherValue);
+keyPad.addEventListener('click', onKeyPadClick);
