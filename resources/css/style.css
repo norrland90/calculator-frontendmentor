@@ -36,7 +36,7 @@
   --clr-bg-delreskeys-hover-2: hsl(225, 51%, 76%);
   --clr-bg-numkeys-shadow-2: hsl(35, 11%, 61%);
   --clr-bg-delreskeys-2: hsl(185, 42%, 37%);
-  --clr-bg-delreskeys-hover-2: hsl(0, 0%, 100%);
+  --clr-bg-delreskeys-hover-2: hsl(185, 40%, 56%);
   --clr-bg-delreskey-shadow-2: hsl(185, 58%, 25%);
   --clr-bg-key-equals-2: hsl(25, 98%, 40%);
   --clr-bg-key-equals-hover-2: hsl(25, 100%, 61%);
@@ -89,8 +89,8 @@
 
 body {
   background-color: var(--clr-bg-main-1);
-  font-family: 'League Spartan', sans-serif;
   color: var(--clr-txt-light-1);
+  font-family: 'League Spartan', sans-serif;
   font-weight: 700;
 }
 
@@ -176,6 +176,24 @@ body {
   transition: transform 300ms ease-out;
 }
 
+/* Theme 2 */
+.calculator--theme-2 .calculator__switch-track {
+  background-color: var(--clr-bg-keypad-2);
+}
+
+.calculator--theme-2 .calculator__switch-thumb {
+  background-color: var(--clr-bg-key-equals-2);
+}
+
+/* Theme 2 */
+.calculator--theme-3 .calculator__switch-track {
+  background-color: var(--clr-bg-keypad-3);
+}
+
+.calculator--theme-3 .calculator__switch-thumb {
+  background-color: var(--clr-bg-key-equals-3);
+}
+
 /* DISPLAY SECTION */
 
 .calculator__display {
@@ -195,6 +213,16 @@ body {
   .calculator__display {
     padding: 2rem var(--section-padding-primary);
   }
+}
+
+/* Theme 2 */
+.calculator--theme-2 .calculator__display {
+  background-color: var(--clr-bg-display-2);
+}
+
+/* Theme 3 */
+.calculator--theme-3 .calculator__display {
+  background-color: var(--clr-bg-display-3);
 }
 
 /* KEYS SECTION */
@@ -273,4 +301,103 @@ body {
 
 .calculator__button--equals:active {
   background-color: var(--clr-bg-key-equals-1);
+}
+
+/* Theme 2 */
+.calculator--theme-2 .calculator__keys {
+  background-color: var(--clr-bg-keypad-2);
+}
+
+.calculator--theme-2 .calculator__button--number {
+  background-color: var(--clr-bg-numkeys-2);
+  color: var(--clr-txt-dark-2);
+  box-shadow: 0px 4px 0 var(--clr-bg-numkeys-shadow-2);
+}
+
+.calculator--theme-2 .calculator__button--number:hover {
+  background-color: var(--clr-bg-numkeys-hover-2);
+}
+
+.calculator--theme-2 .calculator__button--number:active {
+  background-color: var(--clr-bg-numkeys-2);
+}
+
+.calculator--theme-2 .calculator__button--delete,
+.calculator--theme-2 .calculator__button--reset {
+  background-color: var(--clr-bg-delreskeys-2);
+  color: var(--clr-txt-light-2);
+  box-shadow: 0px 4px 0 var(--clr-bg-delreskey-shadow-2);
+}
+
+.calculator--theme-2 .calculator__button--delete:hover,
+.calculator--theme-2 .calculator__button--reset:hover {
+  background-color: var(--clr-bg-delreskeys-hover-2);
+}
+
+.calculator--theme-2 .calculator__button--delete:active,
+.calculator--theme-2 .calculator__button--reset:active {
+  background-color: var(--clr-bg-delreskeys-2);
+}
+
+.calculator--theme-2 .calculator__button--equals {
+  background-color: var(--clr-bg-key-equals-2);
+  color: var(--clr-txt-light-2);
+  box-shadow: 0px 4px 0 var(--clr-bg-key-equals-shadow-2);
+}
+
+.calculator--theme-2 .calculator__button--equals:hover {
+  background-color: var(--clr-bg-key-equals-hover-2);
+}
+
+.calculator--theme-2 .calculator__button--equals:active {
+  background-color: var(--clr-bg-key-equals-2);
+}
+/* Theme 3 */
+.calculator--theme-3 .calculator__keys {
+  background-color: var(--clr-bg-keypad-3);
+}
+
+.calculator--theme-3 .calculator__button--number {
+  background-color: var(--clr-bg-numkeys-3);
+  color: var(--clr-txt-dark-3);
+  box-shadow: 0px 4px 0 var(--clr-bg-numkeys-shadow-3);
+}
+
+.calculator--theme-3 .calculator__button--number:hover {
+  background-color: var(--clr-bg-numkeys-hover-3);
+}
+
+.calculator--theme-3 .calculator__button--number:active {
+  background-color: var(--clr-bg-numkeys-3);
+}
+
+.calculator--theme-3 .calculator__button--delete,
+.calculator--theme-3 .calculator__button--reset {
+  background-color: var(--clr-bg-delreskeys-3);
+  color: var(--clr-txt-light-3);
+  box-shadow: 0px 4px 0 var(--clr-bg-delreskey-shadow-3);
+}
+
+.calculator--theme-3 .calculator__button--delete:hover,
+.calculator--theme-3 .calculator__button--reset:hover {
+  background-color: var(--clr-bg-delreskeys-hover-3);
+}
+
+.calculator--theme-3 .calculator__button--delete:active,
+.calculator--theme-3 .calculator__button--reset:active {
+  background-color: var(--clr-bg-delreskeys-3);
+}
+
+.calculator--theme-3 .calculator__button--equals {
+  background-color: var(--clr-bg-key-equals-3);
+  color: var(--clr-txt-light-3);
+  box-shadow: 0px 4px 0 var(--clr-bg-key-equals-shadow-3);
+}
+
+.calculator--theme-3 .calculator__button--equals:hover {
+  background-color: var(--clr-bg-key-equals-hover-3);
+}
+
+.calculator--theme-3 .calculator__button--equals:active {
+  background-color: var(--clr-bg-key-equals-3);
 }
