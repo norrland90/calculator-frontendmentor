@@ -62,10 +62,10 @@
   --clr-txt-yellow-3: hsl(52, 100%, 62%);
 
   /* Fonts */
-  --fs-xl: 2.5rem; /* Displaynummer */
-  --fs-l: 2rem; /* Keys siffror */
-  --fs-m: 1.25rem; /* Keys DEL, RESET, = */
-  --fs-s: 0.75rem; /* Liten text theme switcher */
+  --fs-xl: 2.5rem;
+  --fs-l: 2rem;
+  --fs-m: 1.25rem;
+  --fs-s: 0.75rem;
 
   /* Padding, margin, gap */
   --gap-primary: 0.8rem;
@@ -73,7 +73,6 @@
   --border-radius-primary: 0.5rem;
 }
 
-/* obs: ev. ändra max-width här */
 @media screen and (min-width: 375px) {
   :root {
     /* Fonts */
@@ -106,7 +105,7 @@ body {
 .calculator__header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
 
   margin-bottom: 2rem;
 }
@@ -183,10 +182,95 @@ body {
   background-color: var(--clr-bg-display-1);
   padding: var(--section-padding-primary);
   border-radius: var(--border-radius-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .calculator__value {
+  padding-top: 0.5rem; /* Center text vertically */
   font-size: var(--fs-xl);
   text-align: right;
+}
+
+@media screen and (min-width: 375px) {
+  .calculator__display {
+    padding: 2rem var(--section-padding-primary);
+  }
+}
+
+/* KEYS SECTION */
+
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 4rem;
+  gap: var(--gap-primary);
+
+  background-color: var(--clr-bg-keypad-1);
+  padding: var(--section-padding-primary);
+  border-radius: var(--border-radius-primary);
+}
+
+.calculator__button {
+  border: 0;
+  border-radius: var(--border-radius-primary);
+  padding-top: 0.5rem; /* Center text vertically */
+
+  font-family: 'League Spartan', sans-serif;
+  font-size: var(--fs-l);
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.calculator__button--number {
+  background-color: var(--clr-bg-numkeys-1);
+  color: var(--clr-txt-dark-1);
+  box-shadow: 0px 4px 0 var(--clr-bg-numkeys-shadow-1);
+}
+
+.calculator__button--number:hover {
+  background-color: var(--clr-bg-numkeys-hover-1);
+}
+
+.calculator__button--number:active {
+  background-color: var(--clr-bg-numkeys-1);
+}
+
+.calculator__button--delete,
+.calculator__button--reset {
+  background-color: var(--clr-bg-delreskeys-1);
+  font-size: var(--fs-m);
+  text-transform: uppercase;
+  color: var(--clr-txt-light-1);
+  box-shadow: 0px 4px 0 var(--clr-bg-delreskey-shadow-1);
+}
+
+.calculator__button--delete:hover,
+.calculator__button--reset:hover {
+  background-color: var(--clr-bg-delreskeys-hover-1);
+}
+
+.calculator__button--delete:active,
+.calculator__button--reset:active {
+  background-color: var(--clr-bg-delreskeys-1);
+}
+
+.calculator__button--reset {
+  grid-column: span 2;
+}
+
+.calculator__button--equals {
+  grid-column: span 2;
+
+  background-color: var(--clr-bg-key-equals-1);
+  color: var(--clr-txt-light-1);
+  box-shadow: 0px 4px 0 var(--clr-bg-key-equals-shadow-1);
+}
+
+.calculator__button--equals:hover {
+  background-color: var(--clr-bg-key-equals-hover-1);
+}
+
+.calculator__button--equals:active {
+  background-color: var(--clr-bg-key-equals-1);
 }
