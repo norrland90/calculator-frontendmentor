@@ -2,9 +2,13 @@
 const themeSwitcherInput = document.querySelector('.calculator__switch-input');
 const themeSwitcherThumb = document.querySelector('.calculator__switch-thumb');
 const calculator = document.querySelector('.calculator');
-const keyPad = document.querySelector('.calculator__keys');
-const calculatorValue = document.querySelector('.calculator__value');
-let operator;
+
+const currentDisplayValue = document.querySelector('.calculator__value');
+const numberElements = document.querySelectorAll('[data-number]');
+const operatorElements = document.querySelectorAll('[data-operator]');
+const deleteElement = document.querySelector('[data-delete]');
+const equalsElement = document.querySelector('[data-equals]');
+const resetElement = document.querySelector('[data-reset]');
 
 // FUNCTIONS
 function getThemeSwitcherValue() {
@@ -39,74 +43,47 @@ function changeTheme(themeSwitcherValue) {
   }
 }
 
-function onKeyPadClick(e) {
-  const targetId = e.target.id;
-  switch (targetId) {
-    case 'zero':
-      addToDisplay('0');
-      break;
-    case 'one':
-      addToDisplay('1');
-      break;
-    case 'two':
-      addToDisplay('2');
-      break;
-    case 'three':
-      addToDisplay('3');
-      break;
-    case 'four':
-      addToDisplay('4');
-      break;
-    case 'five':
-      addToDisplay('5');
-      break;
-    case 'six':
-      addToDisplay('6');
-      break;
-    case 'seven':
-      addToDisplay('7');
-      break;
-    case 'eight':
-      addToDisplay('8');
-      break;
-    case 'nine':
-      addToDisplay('9');
-      break;
-    case 'comma':
-      addToDisplay('.');
-      break;
-    case 'delete':
-      deleteLastNumber();
-      break;
-    case 'reset':
-      resetCalculator();
-      break;
+function addToDisplay(e) {
+  let newNumToDisplay;
+  const num = e.target.innerHTML.trim();
+  const currentValue = getCurrentDisplayNumber();
+  if (currentValue === '0' && num === '0') {
+    newNumToDisplay = '0';
+  } else if (currentValue === '0' && num === '.') {
+    newNumToDisplay = currentValue + num;
+  } else if (num === '.' && currentValue.includes('.')) {
+    newNumToDisplay = currentValue;
+  } else if (currentValue === '0' && num !== '0') {
+    newNumToDisplay = num;
+  } else {
+    newNumToDisplay = currentValue + num;
   }
+  updateDisplay(newNumToDisplay);
 }
 
-function addToDisplay(num) {
-  const currentValue = calculatorValue.innerHTML;
-  if (currentValue === '0' && num !== '.') {
-    calculatorValue.innerHTML = num;
-  } else {
-    calculatorValue.innerHTML = currentValue + num;
-  }
+function getCurrentDisplayNumber() {
+  return currentDisplayValue.innerHTML;
+}
+
+function updateDisplay(num) {
+  currentDisplayValue.innerHTML = num;
 }
 
 function deleteLastNumber() {
-  const currentValue = calculatorValue.innerHTML;
+  let newNumToDisplay;
+  const currentValue = getCurrentDisplayNumber();
   if (currentValue.length === 1) {
-    calculatorValue.innerHTML = '0';
+    newNumToDisplay = '0';
   } else {
-    calculatorValue.innerHTML = currentValue.slice(0, currentValue.length - 1);
+    newNumToDisplay = currentValue.slice(0, currentValue.length - 1);
   }
-}
-
-function resetCalculator() {
-  calculatorValue.innerHTML = '0';
-  operator = '';
+  updateDisplay(newNumToDisplay);
 }
 
 // EVENT LISTENERS
 themeSwitcherInput.addEventListener('input', getThemeSwitcherValue);
-keyPad.addEventListener('click', onKeyPadClick);
+
+numberElements.forEach((element) => {
+  element.addEventListener('click', addToDisplay);
+});
+deleteElement.addEventListener('click', deleteLastNumber);
