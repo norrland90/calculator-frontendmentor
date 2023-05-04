@@ -10,7 +10,13 @@ const deleteElement = document.querySelector('[data-delete]');
 const equalsElement = document.querySelector('[data-equals]');
 const resetElement = document.querySelector('[data-reset]');
 
-// FUNCTIONS
+let previous = '0';
+let current = '0';
+let newNumber = false;
+let expectNewNum = true;
+let newOperator;
+
+// FUNCTIONS THEME SWITCHER
 function getThemeSwitcherValue() {
   const themeSwitcherValue = themeSwitcherInput.value;
   positionSwitcherThumb(themeSwitcherValue);
@@ -43,10 +49,17 @@ function changeTheme(themeSwitcherValue) {
   }
 }
 
+// FUNCTIONS CALCULATOR
 function addToDisplay(e) {
   let newNumToDisplay;
+  let currentValue;
   const num = e.target.innerHTML.trim();
-  const currentValue = getCurrentDisplayNumber();
+  if (newNumber) {
+    currentValue = '0';
+    newNumber = false;
+  } else {
+    currentValue = getCurrentDisplayNumber();
+  }
   if (currentValue === '0' && num === '0') {
     newNumToDisplay = '0';
   } else if (currentValue === '0' && num === '.') {
@@ -59,6 +72,7 @@ function addToDisplay(e) {
     newNumToDisplay = currentValue + num;
   }
   updateDisplay(newNumToDisplay);
+  expectNewNum = false;
 }
 
 function getCurrentDisplayNumber() {
@@ -80,10 +94,61 @@ function deleteLastNumber() {
   updateDisplay(newNumToDisplay);
 }
 
+function chooseOperation(e) {
+  if (expectNewNum) {
+    return;
+  }
+  newNumber = true;
+  expectNewNum = true;
+  compute();
+  newOperator = e.target.id;
+}
+
+function onEquals() {
+  compute();
+  previous = '0';
+  newOperator = '';
+}
+
+function compute() {
+  const currentValue = getCurrentDisplayNumber();
+  switch (newOperator) {
+    case 'plus':
+      previous = Number(previous) + Number(currentValue);
+      break;
+    case 'minus':
+      previous = Number(previous) - Number(currentValue);
+      break;
+    case 'multiplication':
+      previous = Number(previous) * Number(currentValue);
+      break;
+    case 'division':
+      previous = Number(previous) / Number(currentValue);
+      break;
+    default:
+      previous = Number(currentValue);
+  }
+  updateDisplay(String(previous));
+}
+
+function resetCalculator() {
+  previous = '0';
+  current = '0';
+  newNumber = false;
+  expectNewNum = true;
+  newOperator = '';
+  updateDisplay(current);
+}
+
 // EVENT LISTENERS
 themeSwitcherInput.addEventListener('input', getThemeSwitcherValue);
 
 numberElements.forEach((element) => {
   element.addEventListener('click', addToDisplay);
 });
+operatorElements.forEach((element) => {
+  element.addEventListener('click', chooseOperation);
+});
 deleteElement.addEventListener('click', deleteLastNumber);
+equalsElement.addEventListener('click', onEquals);
+resetElement.addEventListener('click', resetCalculator);
