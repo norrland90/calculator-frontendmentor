@@ -211,6 +211,8 @@ body {
   padding-top: 0.5rem; /* Center text vertically */
   font-size: var(--fs-xl);
   text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (min-width: 375px) {

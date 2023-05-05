@@ -25,7 +25,6 @@ function getThemeSwitcherValue() {
 }
 
 function positionSwitcherThumb(themeSwitcherValue) {
-  console.log(themeSwitcherValue);
   if (themeSwitcherValue === '1') {
     themeSwitcherThumb.style.transform = 'translateX(0%)';
   } else if (themeSwitcherValue === '2') {
@@ -85,6 +84,16 @@ function addToDisplay(e) {
   }
   updateDisplay(newNumToDisplay);
   expectNewNum = false;
+  checkValueLength(currentValue);
+}
+
+function checkValueLength(currentValue) {
+  if (currentValue.length >= 14) {
+    currentDisplayValue.style.fontSize = 'var(--fs-l)';
+  }
+  if (currentValue.length >= 20) {
+    currentDisplayValue.style.fontSize = 'var(--fs-m)';
+  }
 }
 
 function getCurrentDisplayNumber() {
@@ -149,6 +158,7 @@ function resetCalculator() {
   newNumber = false;
   expectNewNum = true;
   newOperator = '';
+  currentDisplayValue.style.fontSize = 'var(--fs-xl)';
   updateDisplay(current);
 }
 
