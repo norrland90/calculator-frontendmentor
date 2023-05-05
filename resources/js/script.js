@@ -21,9 +21,11 @@ function getThemeSwitcherValue() {
   const themeSwitcherValue = themeSwitcherInput.value;
   positionSwitcherThumb(themeSwitcherValue);
   changeTheme(themeSwitcherValue);
+  localStorage.setItem('themeSwitchDefault', themeSwitcherValue);
 }
 
 function positionSwitcherThumb(themeSwitcherValue) {
+  console.log(themeSwitcherValue);
   if (themeSwitcherValue === '1') {
     themeSwitcherThumb.style.transform = 'translateX(0%)';
   } else if (themeSwitcherValue === '2') {
@@ -48,6 +50,16 @@ function changeTheme(themeSwitcherValue) {
     calculator.classList = 'calculator calculator--theme-3';
   }
 }
+
+function getThemeFromStorage() {
+  const savedTheme = localStorage.getItem('themeSwitchDefault');
+  themeSwitcherInput.value = savedTheme;
+  getThemeSwitcherValue();
+  positionSwitcherThumb(savedTheme);
+  changeTheme(savedTheme);
+}
+
+getThemeFromStorage();
 
 // FUNCTIONS CALCULATOR
 function addToDisplay(e) {
